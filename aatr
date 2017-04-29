@@ -1,0 +1,10 @@
+#! /bin/bash
+
+translated=$(echo $1 | sed 's/ALA/A/g' | sed 's/ARG/R/g'\
+ | sed 's/ASN/N/g' | sed 's/ASP/D/g' | sed 's/ASX/B/g'\
+ | sed 's/CYS/C/g' | sed 's/GLU/E/g' | sed 's/GLN/Q/g'\
+ | sed 's/ILE/I/g' | sed 's/LEU/L/g' | sed 's/LYS/K/g'\
+ | sed 's/MET/M/g' | sed 's/PHE/F/g' | sed 's/PRO/P/g'\
+ | sed 's/SER/S/g' | sed 's/THR/T/g' | sed 's/TRP/W/g'\
+ | sed 's/TYR/Y/g' | sed 's/VAL/V/g' | sed 's/ //g')
+echo ${translated[@]}
