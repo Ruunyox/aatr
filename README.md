@@ -20,6 +20,6 @@ WULF_CTRL:\> ./aatr --one 'ALA LEU LYS ALA GLU GLU GLN'
 ALKAEEQ
 ```
 ```bash
-WULF_CTRL:\> ./aatr --three 'ALKEEQ'
-ALA LEU LYS GLU GLU GLN
+WULF_CTRL:\> ./aatr --three 'ALKAEEQ'
+ALA LEU LYS ALA GLU GLU GLN
 ```
