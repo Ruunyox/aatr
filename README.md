@@ -14,7 +14,7 @@ scripts.
         [--one]     conversion to one letter code
         [--three]   conversion to three letter code
 ```
-### Example
+#### Example
 ```bash
 WULF_CTRL:\> ./aatr --one 'ALA LEU LYS ALA GLU GLU GLN'
 ALKAEEQ
