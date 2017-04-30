@@ -1,10 +1,52 @@
 #! /bin/bash
 
-translated=$(echo $1 | sed 's/ALA/A/g' | sed 's/ARG/R/g'\
- | sed 's/ASN/N/g' | sed 's/ASP/D/g' | sed 's/ASX/B/g'\
- | sed 's/CYS/C/g' | sed 's/GLU/E/g' | sed 's/GLN/Q/g'\
- | sed 's/ILE/I/g' | sed 's/LEU/L/g' | sed 's/LYS/K/g'\
- | sed 's/MET/M/g' | sed 's/PHE/F/g' | sed 's/PRO/P/g'\
- | sed 's/SER/S/g' | sed 's/THR/T/g' | sed 's/TRP/W/g'\
- | sed 's/TYR/Y/g' | sed 's/VAL/V/g' | sed 's/ //g')
-echo ${translated[@]}
+if [[ $1 != "--one" && $1 != "--three" ]]
+then 
+	printf "\n    usage:\n\n    aatr [opts] [string]\n \
+       [--one]     conversion to one letter code\n \
+       [--three]   conversion to three letter code\n\n"
+	exit
+fi
+if [ "$1" == "--one" ]
+then
+	translated=$(echo $2 | sed 's/ALA/A/g' | sed 's/ARG/R/g'\
+ 	| sed 's/ASN/N/g' | sed 's/ASP/D/g' | sed 's/ASX/B/g'\
+ 	| sed 's/CYS/C/g' | sed 's/GLU/E/g' | sed 's/GLN/Q/g'\
+ 	| sed 's/ILE/I/g' | sed 's/LEU/L/g' | sed 's/LYS/K/g'\
+ 	| sed 's/MET/M/g' | sed 's/PHE/F/g' | sed 's/PRO/P/g'\
+ 	| sed 's/SER/S/g' | sed 's/THR/T/g' | sed 's/TRP/W/g'\
+ 	| sed 's/TYR/Y/g' | sed 's/VAL/V/g' | sed 's/ //g')
+	echo ${translated[@]}
+	exit
+fi
+if [ "$1" == "--three" ]
+then
+	for (( i=0; i<${#2}; i++ ))
+	do
+		letter=$(echo ${2:$i:1})
+		case $letter in
+			A) threes='ALA';;
+			R) threes='ARG';;
+			N) threes='ASN';;
+			D) threes='ASP';;
+			B) threes='ASX';;
+			C) threes='CYS';;
+			E) threes='GLU';;
+			Q) threes='GLN';;
+			I) threes='ILE';;
+			L) threes='LEU';;
+			K) threes='LYS';;
+			M) threes='MET';;
+			F) threes='PHE';;
+			P) threes='PRO';;
+			S) threes='SER';;
+			T) threes='THR';;
+			W) threes='TRP';;
+			Y) threes='TYR';;
+			V) threes='VAL';;
+		esac	
+		translated+=$(echo ''$threes' ')
+	done
+	echo ${translated[@]}
+	exit
+fi
