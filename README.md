@@ -6,7 +6,7 @@ obtained from a PDB file and outputs the equivalent single letter sequence. The 
 meant to be used as a command line tool like `sed` (in fact, the tool is built entirely
 on it), so you may keep it in your `/bin/` if you wish to use as a tool in other 
 scripts. 
-### usage
+#### Usage
 ```bash
     usage:
 
@@ -14,7 +14,7 @@ scripts.
         [--one]     conversion to one letter code
         [--three]   conversion to three letter code
 ```
-### example
+### Example
 ```bash
 WULF_CTRL:\> ./aatr --one 'ALA LEU LYS ALA GLU GLU GLN'
 ALKAEEQ
