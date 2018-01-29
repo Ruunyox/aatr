@@ -21,7 +21,8 @@ then
  	| sed 's/ILE/I/g' | sed 's/LEU/L/g' | sed 's/LYS/K/g'\
  	| sed 's/MET/M/g' | sed 's/PHE/F/g' | sed 's/PRO/P/g'\
  	| sed 's/SER/S/g' | sed 's/THR/T/g' | sed 's/TRP/W/g'\
- 	| sed 's/TYR/Y/g' | sed 's/VAL/V/g' | sed 's/ //g')
+ 	| sed 's/TYR/Y/g' | sed 's/VAL/V/g' | sed 's/GLY/G/g'\
+	| sed 's/ //g')
 	echo ${translated[@]}
 	exit
 fi
@@ -36,6 +37,7 @@ then
 			N) threes='ASN';;
 			D) threes='ASP';;
 			B) threes='ASX';;
+			G) threes='GLY';;
 			C) threes='CYS';;
 			E) threes='GLU';;
 			Q) threes='GLN';;
